@@ -1,4 +1,3 @@
-import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { checkAuthStatusThunk, fetchUserInfoThunk } from './features/authSlice'
@@ -19,8 +18,12 @@ import Navbar from './components/shared/Navbar'
 import CustomerService from './pages/CustomerService'
 import SellerPage from './pages/SellerPage'
 import ItemDetail from './pages/item/ItemDetail'
-import QnAPage from './pages/item/QnAPage'
+import QnAPage from './pages/QnAPage'
 import ReviewForm from './components/item/ReviewForm'
+import CartPage from './pages/CartPage'
+import About from './pages/About'
+import Privacy from './pages/Privacy'
+import SearchResults from './pages/SearchResult'
 
 function App() {
    const dispatch = useDispatch()
@@ -63,6 +66,10 @@ function App() {
             <Route path="/qna" element={<QnAPage />} />
             {/* 리뷰 페이지 */}
             <Route path="/review" element={<ReviewForm />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/search" element={<SearchResults />} />
          </Routes>
          <Footer />
       </>

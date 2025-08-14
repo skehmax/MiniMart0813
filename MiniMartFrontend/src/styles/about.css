@@ -1,0 +1,140 @@
+.about-container {
+   min-height: 100vh;
+   background: linear-gradient(135deg, #ebd96b 0%, #f4e79d 100%);
+}
+
+.about-hero {
+   text-align: center;
+   padding: 6rem 2rem;
+   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+}
+
+.about-title {
+   font-size: 4rem;
+   font-weight: bold;
+   color: white;
+   margin-bottom: 1rem;
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.about-subtitle {
+   font-size: 1.5rem;
+   color: white;
+   max-width: 600px;
+   margin: 0 auto;
+   line-height: 1.6;
+}
+
+.about-content {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 4rem 2rem;
+   background: white;
+   margin-top: -2rem;
+   border-radius: 20px 20px 0 0;
+   box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-section {
+   margin-bottom: 4rem;
+}
+
+.about-section h2 {
+   font-size: 2.5rem;
+   color: #1c1c1c;
+   margin-bottom: 2rem;
+   text-align: center;
+   position: relative;
+}
+
+.about-section h2::after {
+   content: '';
+   position: absolute;
+   bottom: -10px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 80px;
+   height: 3px;
+   background: #ebd96b;
+}
+
+.about-section p {
+   font-size: 1.1rem;
+   line-height: 1.8;
+   color: #555;
+   text-align: center;
+   max-width: 800px;
+   margin: 0 auto;
+}
+
+.mission-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   gap: 2rem;
+   margin-top: 3rem;
+}
+
+.mission-item {
+   background: #f9f9f9;
+   padding: 2rem;
+   border-radius: 15px;
+   text-align: center;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission-item:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mission-item h3 {
+   font-size: 1.5rem;
+   color: #1c1c1c;
+   margin-bottom: 1rem;
+}
+
+.mission-item p {
+   color: #666;
+   line-height: 1.6;
+   text-align: left;
+}
+
+.promise-list {
+   list-style: none;
+   padding: 0;
+   max-width: 600px;
+   margin: 2rem auto;
+}
+
+.promise-list li {
+   padding: 1rem;
+   margin: 1rem 0;
+   background: #f9f9f9;
+   border-left: 4px solid #ebd96b;
+   border-radius: 0 10px 10px 0;
+   font-size: 1.1rem;
+   color: #555;
+   transition: background-color 0.3s ease;
+}
+
+.promise-list li:hover {
+   background: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+   .about-title {
+      font-size: 2.5rem;
+   }
+
+   .about-subtitle {
+      font-size: 1.2rem;
+   }
+
+   .about-section h2 {
+      font-size: 2rem;
+   }
+
+   .mission-grid {
+      grid-template-columns: 1fr;
+   }
+}

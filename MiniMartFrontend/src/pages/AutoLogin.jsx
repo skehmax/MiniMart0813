@@ -1,9 +1,6 @@
-// 파일: /src/App.jsx 또는 최상위 컴포넌트
-//**홈페이지 화면이 만들어지면 거기에 넣을 것 */
-
 import React, { useState, useEffect, createContext, useContext } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import LoginPage from './LoginPage' // 위에서 만든 로그인 페이지
+import LoginPage from './LoginPage'
 
 // 1. 유저 정보와 로그인/로그아웃 함수를 앱 전체에서 공유하기 위한 Context 생성
 const AuthContext = createContext(null)
