@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -17,7 +17,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { getItemThunk, getSellerItemsThunk } from '../../features/itemSlice'
 
 function ItemDetail() {
-   const { loading, item, items } = useSelector((s) => s.item)
+   const { loading, error, item, items } = useSelector((s) => s.item)
 
    const { name, price, stock_number, description, status, is_sale, sale, ItemImgs, ItemOptions, Seller } = item ?? {}
    const dispatch = useDispatch()
@@ -36,9 +36,9 @@ function ItemDetail() {
 
    useEffect(() => {
       if (!item) return
-      const repImg = ItemImgs.find((v) => v.rep_img_yn)
-      const detailsImg = ItemImgs.find((v) => v.details_img_yn)
-      const otherImgs = ItemImgs.filter((v) => !(v.details_img_yn || v.rep_img_yn))
+      const repImg = ItemImgs.find((v, i) => v.rep_img_yn)
+      const detailsImg = ItemImgs.find((v, i) => v.details_img_yn)
+      const otherImgs = ItemImgs.filter((v, i) => !(v.details_img_yn || v.rep_img_yn))
       setImgs({ repImg, detailsImg, otherImgs })
    }, [item])
 
