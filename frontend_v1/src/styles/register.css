@@ -1,0 +1,433 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+body,
+html {
+   font-family: 'Inter', 'Noto Sans KR', sans-serif; /* 한국어 폰트 추가 */
+   background: #f7f7f7; /*    전체 배경색을 약간 회색으로 */
+   display: flex;
+   justify-content: center;
+   min-height: 100vh;
+}
+
+/* =================================================================
+   회원가입 컨테이너 (메인 박스)
+   ================================================================= */
+.register-container {
+   display: flex;
+   flex-direction: column;
+   width: 800px;
+   max-width: 90%; /* 화면이 작아질 때를 대비 */
+   padding: 48px;
+   gap: 24px;
+   background: #ffffff;
+   border: 1px solid #d9d9d9;
+   border-radius: 8px;
+   margin: 10px 0; /* 위아래 여백 */
+}
+
+.register-container h2 {
+   text-align: center;
+   font-size: 28px;
+   font-weight: 600;
+   margin-bottom: 16px;
+}
+
+.register-error {
+   color: #d32f2f;
+   background-color: #ffebee;
+   padding: 12px;
+   border-radius: 4px;
+   text-align: center;
+   margin-bottom: 16px;
+}
+
+/* =================================================================
+   입력 필드 (Input Fields)
+   ================================================================= */
+.register-input {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+   width: 100%;
+   text-align: start;
+}
+
+.register-input label {
+   display: flex;
+   font-size: 16px;
+   font-weight: 500;
+   color: #1e1e1e;
+}
+
+.register-input input {
+   width: 100%;
+   height: 48px;
+   padding: 0 16px;
+   border: 1px solid #d9d9d9;
+   border-radius: 8px;
+   font-size: 16px;
+   transition: border-color 0.2s;
+   text-align: start;
+}
+
+.register-input input:focus {
+   outline: none;
+   border-color: #facc15; /* 포커스 시 테두리 색상 변경 */
+   box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.3);
+}
+
+.birthyear-select {
+   height: 48px;
+   padding: 0 16px;
+   border: 1px solid #d9d9d9;
+   border-radius: 8px;
+   font-size: 16px;
+   background-color: #fff;
+   transition: border-color 0.2s;
+}
+
+.birthyear-select:focus {
+   outline: none;
+   border-color: #facc15;
+   box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.3);
+}
+
+.phone-input {
+   width: 100%;
+   height: 48px;
+   padding: 0 16px;
+   border: 1px solid #d9d9d9;
+   border-radius: 8px;
+   font-size: 16px;
+   background-color: #fff;
+   transition: border-color 0.2s;
+}
+
+.phone-input:focus {
+   outline: none;
+   border-color: #facc15;
+   box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.3);
+}
+
+/* --- 우편번호 찾기 --- */
+.postcode-box {
+   display: flex;
+   gap: 16px;
+}
+
+.postcode-box input {
+   flex-grow: 1; /* 남은 공간을 모두 차지 */
+}
+.postcode-button {
+   width: 30%;
+   height: 48px;
+   padding: 0 24px;
+   background: #e0e0e0;
+   border: 1px solid #cccccc;
+   border-radius: 8px;
+   cursor: pointer;
+   font-weight: 500;
+}
+.postcode-button:hover {
+   background: #d1d1d1;
+}
+
+/* --- 상세주소 & 참고항목 (한 줄에 두 개) --- */
+.address-detail-row {
+   display: flex;
+   gap: 16px;
+   width: 100%;
+}
+
+.half-input {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+   width: 50%;
+}
+
+.half-input label {
+   font-size: 16px;
+   font-weight: 500;
+   color: #1e1e1e;
+}
+
+.half-input input {
+   width: 100%;
+   height: 48px;
+   padding: 0 16px;
+   border: 1px solid #d9d9d9;
+   border-radius: 8px;
+   font-size: 16px;
+}
+
+/* =================================================================
+   소셜 로그인 (SNS)
+   ================================================================= */
+.register-sns {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 16px;
+   margin-top: 24px;
+   border-top: 1px solid #e0e0e0;
+   padding-top: 24px;
+}
+
+.sns-label {
+   font-size: 14px;
+   color: #757575;
+}
+
+.sns-icons {
+   display: flex;
+   gap: 24px;
+}
+
+.sns-icons img {
+   width: 48px;
+   height: 48px;
+   cursor: pointer;
+   transition: opacity 0.2s;
+}
+.sns-icons img:hover {
+   opacity: 0.8;
+}
+
+/* =================================================================
+   버튼 그룹 (Button Group)
+   ================================================================= */
+.button-group {
+   width: 100%;
+   margin-top: 16px;
+}
+
+.button-group button {
+   width: 100%;
+   height: 52px;
+   background: #2c2c2c;
+   border: none;
+   border-radius: 8px;
+   color: #ffffff;
+   font-size: 18px;
+   font-weight: 600;
+   cursor: pointer;
+   transition: background-color 0.2s;
+}
+
+.button-group button:hover {
+   background: #4a4a4a;
+}
+
+.button-group button:disabled {
+   background: #cccccc;
+   cursor: not-allowed;
+}
+
+/* =================================================================
+   회원가입 완료 화면
+   ================================================================= */
+.register-complete-box {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   width: 600px;
+   padding: 48px;
+   gap: 24px;
+   background: #ffffff;
+   border: 1px solid #d9d9d9;
+   border-radius: 8px;
+}
+
+.register-complete-box h2 {
+   font-size: 24px;
+   font-weight: 600;
+}
+
+.register-complete-box p {
+   font-size: 16px;
+   color: #757575;
+}
+
+.register-complete-button {
+   width: 50%;
+   height: 48px;
+   background: #2c2c2c;
+   border: none;
+   border-radius: 8px;
+   color: #ffffff;
+   font-size: 16px;
+   font-weight: 500;
+   cursor: pointer;
+}
+
+/* =================================================================
+   로그인 페이지 전체 컨테이너
+   ================================================================= */
+.login-container {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 40px 20px;
+}
+
+/* =================================================================
+   로그인 폼 (메인 박스)
+   ================================================================= */
+.login-form-box {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 500px;
+   max-width: 100%;
+   padding: 48px;
+   gap: 20px; /* 요소 간 간격 조정 */
+   background: #ffffff;
+   border: 1px solid #d9d9d9;
+   border-radius: 12px;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* --- 로그인 타이틀 --- */
+.login-title {
+   font-size: 32px;
+   font-weight: 700;
+   color: #1e1e1e;
+   margin-bottom: 24px; /* 아래 요소와 간격 */
+}
+
+/* --- 입력 필드 --- */
+.login-input {
+   width: 100%;
+   height: 52px;
+   padding: 0 16px;
+   border: 1px solid #d9d9d9;
+   border-radius: 8px;
+   font-size: 16px;
+   transition: border-color 0.2s, box-shadow 0.2s;
+   text-align: start;
+}
+
+.login-input:focus {
+   outline: none;
+   border-color: #facc15;
+   box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.3);
+}
+
+/* --- 에러 메시지 --- */
+.login-error {
+   color: #d32f2f;
+   font-size: 14px;
+   min-height: 20px; /* 에러 메시지 없을 때도 공간 차지 */
+}
+
+/* --- 제출 버튼 --- */
+.login-submit-btn {
+   width: 100%;
+   height: 52px;
+   background: #2c2c2c;
+   border: none;
+   border-radius: 8px;
+   color: #ffffff;
+   font-size: 18px;
+   font-weight: 600;
+   cursor: pointer;
+   transition: background-color 0.2s;
+   margin-top: 12px; /* 위 요소와 간격 */
+}
+
+.login-submit-btn:hover {
+   background: #4a4a4a;
+}
+
+.login-submit-btn:disabled {
+   background: #cccccc;
+   cursor: not-allowed;
+}
+
+.firstvisit {
+   text-decoration: none;
+   color: inherit; /* 기본 텍스트 색상 유지 */
+   cursor: pointer;
+}
+
+.findpassword {
+   text-decoration: none;
+   color: inherit; /* 기본 텍스트 색상 유지 */
+   cursor: pointer;
+   font-size: 12px;
+}
+
+/* --- 구분선 --- */
+.login-divider {
+   width: 100%;
+   border-bottom: 1px solid #e0e0e0;
+   line-height: 0.1em;
+   margin: 32px 0;
+   font-size: 14px;
+   color: #757575;
+}
+
+/* --- 소셜 로그인 아이콘 --- */
+.social-login-icons {
+   display: flex;
+   justify-content: center;
+   gap: 24px;
+   width: 100%;
+}
+
+.social-icon {
+   width: 52px;
+   height: 52px;
+   cursor: pointer;
+   transition: transform 0.2s, opacity 0.2s;
+   border-radius: 50%; /* 아이콘을 동그랗게 */
+   overflow: hidden; /* 동그란 모양 밖으로 나가는 부분 숨김 */
+}
+.social-icon:hover {
+   transform: scale(1.1);
+   opacity: 0.9;
+}
+
+/* 이메일 비번 화면 */
+.form {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+.form input {
+   padding: 10px;
+   font-size: 1rem;
+}
+
+.form-container {
+   max-width: 400px;
+   margin: 0 auto;
+   padding: 40px 20px;
+}
+.error {
+   color: red;
+   font-size: 0.9rem;
+}
+
+.find-password-page {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 80vh;
+}
+
+.form-section {
+   width: 100%;
+   max-width: 400px;
+   padding: 2rem;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   background-color: white;
+}
