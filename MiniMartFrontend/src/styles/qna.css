@@ -1,161 +1,348 @@
-/* 전체 페이지 레이아웃 */
-body {
-   background-color: #f7f7f7;
-   margin: 0;
+.qna-container {
+   background-color: #f8f9fa; /* 전체 배경색 */
+   padding: 2rem 0 4rem 0; /* 위아래 여백 */
+   font-family: 'Pretendard', sans-serif; /* 폰트 적용 (main.css에 import 필요) */
 }
 
-.qna-page {
+.qna-header {
+   text-align: center;
+   padding: 4rem 2rem;
+   background: linear-gradient(135deg, #ebd96b 0%, #f4e79d 100%);
+   margin-bottom: 2rem;
+}
+
+.qna-header h1 {
+   font-size: 2.8rem;
+   color: #1c1c1c;
+   margin-bottom: 1rem;
+   font-weight: 800; /* 더 굵게 */
+}
+
+.qna-header p {
+   font-size: 1.1rem;
+   color: #333;
+   max-width: 600px;
+   margin: 0 auto;
+}
+
+.qna-content {
+   max-width: 1000px;
+   margin: 0 auto;
+   padding: 0 2rem;
+}
+
+/* =================================================================
+   탭 메뉴 (Tab Menu)
+   ================================================================= */
+.qna-tabs {
+   display: flex;
+   border-radius: 12px 12px 0 0;
+   overflow: hidden;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tab-button {
+   flex: 1;
+   padding: 1.2rem 2rem;
+   border: none;
+   background: #f8f9fa;
+   color: #666;
+   font-size: 1.1rem;
+   font-weight: 500;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   border-bottom: 3px solid transparent;
+}
+
+.tab-button:hover {
+   background: #e9ecef;
+   color: #333;
+}
+
+.tab-button.active {
+   background: white;
+   color: #1c1c1c;
+   font-weight: bold;
+   border-bottom: 3px solid #ebd96b;
+}
+
+/* =================================================================
+   자주 묻는 질문 (FAQ Section)
+   ================================================================= */
+.faq-section {
+   background: white;
+   padding: 3rem 2rem;
+   border-radius: 0 0 12px 12px;
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.faq-section h2,
+.inquiry-section h2 {
+   font-size: 1.8rem;
+   color: #1c1c1c;
+   margin-bottom: 2.5rem;
+   text-align: center;
+   font-weight: 700;
+}
+
+.faq-list {
    max-width: 800px;
    margin: 0 auto;
-   padding: 60px 20px;
-   font-family: Arial, sans-serif;
 }
 
-/* 제목 스타일 */
-.qna-title {
-   text-align: center;
-   font-size: 22px;
-   background-color: #f1d25f;
-   padding: 12px 24px;
-   border-radius: 8px;
-   display: block;
-   width: fit-content;
-   margin: 0 auto 30px;
-   font-weight: bold;
-}
-
-/* Q&A 폼 컨테이너 */
-.qna-form {
-   border: 1px solid #ddd;
-   padding: 40px;
-   border-radius: 6px;
-   background-color: #fff;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
-
-/* 이미지 업로드 섹션 */
-.image-upload-section {
-   margin-bottom: 20px;
-}
-
-.image-preview-list {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 8px; /* ⭐ 이미지 간 간격을 8px로 설정 */
-   margin-bottom: 20px;
-}
-
-.image-preview-box,
-.image-upload-box {
-   width: 100px;
-   height: 100px;
-   border: 1px solid #ddd;
-   border-radius: 4px;
+.faq-item {
+   border: 1px solid #e0e0e0;
+   border-radius: 10px;
+   margin-bottom: 1rem;
    overflow: hidden;
+   transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.faq-question {
+   display: flex;
+   align-items: center;
+   padding: 1.2rem 1.5rem;
+   background: #f8f9fa;
+   cursor: pointer;
+}
+
+.faq-q-mark {
+   background: #ebd96b;
+   color: #1c1c1c;
+   width: 28px;
+   height: 28px;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: bold;
+   font-size: 1.1rem;
+   margin-right: 1rem;
+   flex-shrink: 0;
+}
+
+.faq-question-text {
+   flex: 1;
+   font-size: 1.05rem;
+   font-weight: 500;
+   color: #333;
+}
+
+.faq-arrow {
+   font-size: 0.8rem;
+   color: #666;
+   transition: transform 0.3s ease;
+}
+
+.faq-arrow.expanded {
+   transform: rotate(180deg);
+}
+
+.faq-answer {
+   max-height: 0;
+   overflow: hidden;
+   transition: max-height 0.4s ease, padding 0.4s ease;
+   padding: 0 1.5rem;
+   background: white;
+   display: flex;
+   align-items: flex-start;
+}
+
+.faq-answer.expanded {
+   max-height: 200px; /* 충분한 높이 */
+   padding: 1.5rem;
+}
+
+.faq-a-mark {
+   background: #333;
+   color: white;
+   width: 28px;
+   height: 28px;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: bold;
+   font-size: 1.1rem;
+   margin-right: 1rem;
+   flex-shrink: 0;
+}
+
+.faq-answer-text {
+   color: #555;
+   line-height: 1.7;
+}
+
+/* =================================================================
+   1:1 문의하기 (Inquiry Section)
+   ================================================================= */
+.inquiry-section {
+   background: white;
+   padding: 3rem 2rem;
+   border-radius: 0 0 12px 12px;
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.inquiry-form {
+   max-width: 800px;
+   margin: 0 auto;
+}
+
+.form-group {
+   margin-bottom: 2rem;
+}
+
+.form-group label {
+   display: block;
+   font-size: 1.1rem;
+   font-weight: 500;
+   color: #333;
+   margin-bottom: 0.8rem;
+}
+
+.form-group input[type='text'],
+.form-group textarea {
+   width: 100%;
+   padding: 1rem 1.2rem;
+   border: 1px solid #e0e0e0;
+   border-radius: 8px;
+   font-size: 1rem;
+   transition: all 0.3s ease;
    box-sizing: border-box;
 }
 
-.image-preview-box img {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
+.form-group input[type='text']:focus,
+.form-group textarea:focus {
+   outline: none;
+   border-color: #ebd96b;
+   box-shadow: 0 0 0 3px rgba(235, 217, 107, 0.2);
 }
 
-.image-upload-box {
+/* --- 이미지 업로드 스타일 --- */
+.image-preview-list {
    display: flex;
-   justify-content: center;
-   align-items: center;
-   cursor: pointer;
-   background-color: #f9f9f9;
-}
-
-.image-upload-box:hover {
-   background-color: #f0f0f0;
-}
-
-.image-upload-box span {
-   font-size: 40px;
-   color: #ccc;
-   font-weight: 100;
-}
-
-/* 폼 요소 공통 레이아웃 */
-.form-row {
-   margin-bottom: 15px;
-}
-
-/* 제목 입력 필드와 비밀글 체크박스 */
-.input-title-container {
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   margin-bottom: 15px;
+   flex-wrap: wrap;
    gap: 10px;
 }
 
-.input-title-container label {
-   font-weight: bold;
-   width: 60px;
-   flex-shrink: 0;
+.image-preview-item {
+   width: 100px;
+   height: 100px;
+   border-radius: 8px;
+   object-fit: cover;
+   border: 1px solid #eee;
 }
 
-.input-title {
-   flex-grow: 1;
-   height: 40px;
-   padding: 0 12px;
-   font-size: 15px;
-   border: 1px solid #ccc;
-   border-radius: 4px;
-}
-
-.private-check {
+.image-upload-button {
+   width: 100px;
+   height: 100px;
+   border: 2px dashed #e0e0e0;
+   border-radius: 8px;
    display: flex;
    align-items: center;
-   gap: 4px;
-   font-size: 14px;
-   white-space: nowrap;
-   flex-shrink: 0;
-}
-
-/* 내용 입력 필드 */
-.input-content {
-   width: 100%;
-   height: 200px;
-   padding: 12px;
-   font-size: 15px;
-   border: 1px solid #ccc;
-   border-radius: 4px;
-   resize: vertical;
-   margin-bottom: 16px;
-}
-
-.input-content-label {
-   font-weight: bold;
-   margin-bottom: 8px;
-}
-
-/* 제출 버튼 */
-.submit-btn {
-   display: block;
-   width: 100%;
-   height: 45px;
-   background-color: #333;
-   color: #fff;
-   font-size: 16px;
-   border: none;
-   border-radius: 4px;
+   justify-content: center;
+   font-size: 2.5rem;
+   color: #ccc;
    cursor: pointer;
-   font-weight: bold;
-   transition: background-color 0.2s ease;
+   transition: all 0.3s ease;
 }
 
-.submit-btn:hover {
-   background-color: #555;
+.image-upload-button:hover {
+   border-color: #ebd96b;
+   color: #ebd96b;
+   background-color: #fcfcfc;
 }
 
-/* 기타 유틸리티 클래스 */
-.upload-hint {
-   font-size: 13px;
+/* --- 비밀글 체크박스 --- */
+.checkbox-group {
+   display: flex;
+   align-items: center;
+}
+
+.checkbox-label {
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+   font-size: 1rem;
    color: #555;
-   margin-bottom: 8px;
+}
+
+.checkbox-label input[type='checkbox'] {
+   display: none;
+}
+
+.checkbox-custom {
+   width: 20px;
+   height: 20px;
+   border: 2px solid #e0e0e0;
+   border-radius: 4px;
+   margin-right: 0.8rem;
+   position: relative;
+   transition: all 0.3s ease;
+}
+
+.checkbox-label input[type='checkbox']:checked + .checkbox-custom {
+   background: #ebd96b;
+   border-color: #ebd96b;
+}
+
+.checkbox-label input[type='checkbox']:checked + .checkbox-custom::after {
+   content: '✓';
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   color: #1c1c1c;
+   font-weight: bold;
+   font-size: 0.8rem;
+}
+
+/* --- 제출 버튼 --- */
+.form-actions {
+   text-align: center;
+   margin-top: 3rem;
+}
+
+.submit-btn {
+   background: #1c1c1c;
+   color: white;
+   padding: 1rem 3rem;
+   border: none;
+   border-radius: 8px;
+   font-size: 1.1rem;
+   font-weight: bold;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:hover:not(:disabled) {
+   transform: translateY(-3px);
+   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+   background: #333;
+}
+
+.submit-btn:disabled {
+   opacity: 0.6;
+   cursor: not-allowed;
+}
+
+/* =================================================================
+   반응형 디자인 (모바일)
+   ================================================================= */
+@media (max-width: 768px) {
+   .qna-header h1 {
+      font-size: 2rem;
+   }
+   .qna-content {
+      padding: 0 1rem;
+   }
+   .faq-section,
+   .inquiry-section {
+      padding: 2rem 1rem;
+   }
 }
