@@ -1,0 +1,44 @@
+.google-info {
+   min-height: 1000px;
+}
+
+.google-info__wrap {
+   width: 800px;
+   height: 500px;
+   margin: 100px auto;
+   border: 2px solid #ebd96b;
+   border-radius: 5px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 100px;
+}
+.google-info__p {
+   background-color: #eee;
+   font-size: 1.5em;
+   height: 200px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.google-info__buttons {
+   display: flex;
+   justify-content: space-around;
+   gap: 30px;
+}
+
+.google-info__buttons > button {
+   width: 150px;
+   height: 80px;
+   background-color: #999999;
+   color: white;
+   border-radius: 3px;
+   font-weight: bold;
+   cursor: pointer;
+}
+
+.google-info__buttons > button:nth-of-type(1) {
+   background-color: #ebd96b;
+   color: black;
+}
